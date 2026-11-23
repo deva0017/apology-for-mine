@@ -4,342 +4,314 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>தேவா ❤️ லக்ஷணா | நம் நினைவுகள்</title>
+<title>தேவா ❤️ லக்ஷணா | Our Memories</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:"Noto Sans Tamil",Arial,sans-serif;
+color:#74334f;
+background:linear-gradient(135deg,#ffd6e7,#e8d5ff,#fff0f5,#ffe4e1);
+background-size:400% 400%;
+animation:bg 12s infinite alternate;
+overflow-x:hidden
+}
+@keyframes bg{to{background-position:100% 100%}}
+
+button{cursor:pointer}
+
+/* POPUP */
+.popup{
+position:fixed;inset:0;z-index:1000;
+display:flex;align-items:center;justify-content:center;
+padding:20px;background:#35102dcc;
+backdrop-filter:blur(12px);
+transition:.6s
+}
+.popup.hide{opacity:0;visibility:hidden;pointer-events:none}
+.popup-box{
+background:linear-gradient(145deg,#fff0f6,#eadcff,#ffe0ed);
+max-width:430px;width:100%;padding:35px 24px;
+border-radius:30px;text-align:center;
+box-shadow:0 0 45px #ff70b5;
+border:3px solid white;
+animation:appear .8s ease
+}
+@keyframes appear{
+from{transform:scale(.4) rotate(-8deg);opacity:0}
+to{transform:scale(1);opacity:1}
+}
+.couple{font-size:85px;animation:dance 2s infinite}
+@keyframes dance{50%{transform:translateY(-13px) rotate(5deg)}}
+.popup h2{color:#e63880;margin:15px 0;font-size:27px}
+.popup p{line-height:2;margin-bottom:20px}
+
+/* BUTTONS */
+.btn{
+display:inline-block;border:0;
+padding:14px 28px;border-radius:40px;
+background:linear-gradient(45deg,#ff4081,#a855f7);
+color:white;font-size:17px;
+box-shadow:0 5px 20px #ed8cbd;
+transition:.3s;text-decoration:none
+}
+.btn:hover{transform:scale(1.08)}
+.later{background:white;color:#d63384;padding:9px 22px;
+border:1px solid pink;border-radius:25px;margin-top:15px}
+
+/* FLOATING HEARTS */
+.heart{
+position:fixed;bottom:-40px;
+z-index:5;pointer-events:none;
+animation:floatUp linear forwards
+}
+@keyframes floatUp{
+0%{transform:translateY(0) rotate(0);opacity:0}
+15%{opacity:.9}
+100%{transform:translateY(-115vh) rotate(360deg);opacity:0}
 }
 
-body {
-    font-family: "Noto Sans Tamil", Arial, sans-serif;
-    background: #fff0f5;
-    color: #5c3045;
-    overflow-x: hidden;
+/* HERO */
+.hero{
+min-height:100vh;display:flex;
+align-items:center;justify-content:center;
+text-align:center;padding:30px 20px;
+background:linear-gradient(135deg,#ffc5dc,#e9d5ff,#fff0f5)
+}
+.hero h1{
+font-size:clamp(35px,7vw,65px);
+color:#d63384;margin:20px 0;
+text-shadow:2px 3px 10px white
+}
+.hero p{font-size:19px;line-height:2;margin-bottom:25px}
+
+/* SECTIONS */
+section{padding:75px 20px;text-align:center}
+section h2{color:#d63384;font-size:30px;margin-bottom:30px}
+.intro{
+max-width:760px;margin:auto;
+font-size:18px;line-height:2.2;
+white-space:pre-line
+}
+.section-card{
+background:#ffffffbb;padding:30px;
+border-radius:25px;box-shadow:0 10px 30px #dba9c7
 }
 
-html {
-    scroll-behavior: smooth;
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;max-width:1100px;margin:auto
+}
+.card{
+background:white;padding:12px;border-radius:20px;
+box-shadow:0 8px 25px #d9a9c4;
+transition:.3s;overflow:hidden
+}
+.card:hover{transform:translateY(-9px) rotate(-1deg)}
+.card img{
+width:100%;height:280px;object-fit:cover;
+border-radius:14px;cursor:pointer
+}
+.card p{padding:14px 5px;line-height:1.8}
+
+/* APOLOGY */
+.poem{
+max-width:800px;margin:auto;
+background:linear-gradient(145deg,#fff,#fff0f7);
+padding:35px;border-radius:25px;
+box-shadow:0 10px 35px #e7b4c8;
+font-size:18px;line-height:2.2;
+white-space:pre-line
 }
 
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(135deg, #ffd6e7, #fff0f5, #ffe4e1);
-    padding: 30px;
+/* LOVE LETTER */
+.letter{
+max-width:600px;margin:25px auto
+}
+.letter-content{
+display:none;background:white;padding:28px;
+border-radius:22px;margin-top:20px;
+line-height:2;box-shadow:0 8px 25px #d9a9c4;
+animation:appear .7s
+}
+.letter-content.show{display:block}
+
+/* FINAL */
+.final{
+background:linear-gradient(135deg,#ffcade,#e9d5ff,#ffe5ed)
+}
+.final .intro{
+background:#ffffffaa;padding:30px;border-radius:25px
 }
 
-.hero h1 {
-    font-size: clamp(35px, 7vw, 70px);
-    margin-bottom: 20px;
+/* LIGHTBOX */
+.lightbox{
+display:none;position:fixed;inset:0;
+background:#000e;z-index:2000;
+align-items:center;justify-content:center;padding:20px
+}
+.lightbox img{max-width:95%;max-height:85vh;border-radius:15px}
+.lightbox span{
+position:absolute;right:25px;top:15px;
+font-size:45px;color:white;cursor:pointer
 }
 
-.hero p {
-    font-size: 20px;
-    margin-bottom: 30px;
-}
+footer{padding:30px;background:#f8c9df;text-align:center;line-height:2}
 
-.btn {
-    border: none;
-    padding: 14px 28px;
-    border-radius: 30px;
-    background: #e75480;
-    color: white;
-    font-size: 17px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    transform: scale(1.08);
-    background: #c93b69;
-}
-
-section {
-    padding: 70px 20px;
-    text-align: center;
-}
-
-section h2 {
-    font-size: 32px;
-    margin-bottom: 30px;
-    color: #bd416b;
-}
-
-.intro {
-    max-width: 750px;
-    margin: auto;
-    font-size: 19px;
-    line-height: 2;
-}
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    max-width: 1100px;
-    margin: auto;
-}
-
-.card {
-    background: white;
-    padding: 12px;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(190, 80, 120, 0.15);
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-8px) rotate(-1deg);
-}
-
-.card img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 12px;
-    cursor: pointer;
-}
-
-.card p {
-    margin-top: 15px;
-    font-size: 17px;
-    line-height: 1.7;
-}
-
-.poem {
-    max-width: 800px;
-    margin: auto;
-    background: white;
-    padding: 35px;
-    border-radius: 25px;
-    box-shadow: 0 10px 30px #e7b4c8;
-    font-size: 19px;
-    line-height: 2.2;
-    white-space: pre-line;
-}
-
-.final {
-    background: linear-gradient(135deg, #ffcfdf, #ffe8ee);
-    padding: 90px 20px;
-}
-
-footer {
-    text-align: center;
-    padding: 25px;
-    background: #f9d6e3;
-}
-
-.heart {
-    position: fixed;
-    bottom: -20px;
-    font-size: 22px;
-    animation: float 7s linear infinite;
-    opacity: 0.6;
-    pointer-events: none;
-    z-index: 0;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-    }
-
-    20% {
-        opacity: 0.7;
-    }
-
-    100% {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-.lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.9);
-    z-index: 999;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.lightbox img {
-    max-width: 95%;
-    max-height: 90vh;
-    border-radius: 12px;
-}
-
-.lightbox span {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: white;
-    font-size: 40px;
-    cursor: pointer;
-}
-
-@media(max-width:600px) {
-    section h2 {
-        font-size: 27px;
-    }
-
-    .poem {
-        padding: 20px;
-        font-size: 17px;
-    }
-
-    .card img {
-        height: 240px;
-    }
+@media(max-width:600px){
+section h2{font-size:25px}
+.card img{height:240px}
+.poem{padding:22px 15px;font-size:16px}
+.popup-box{padding:28px 18px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- OPENING -->
+<!-- COUPLE POPUP -->
+<div class="popup" id="welcomePopup">
+<div class="popup-box">
 
+<div class="couple">👩‍❤️‍👨</div>
+
+<h2>தேவா ❤️ லக்ஷணா</h2>
+
+<p>
+இரண்டு இதயங்கள்...<br>
+ஒரு அழகான பயணம்... 💕
+
+<br><br>
+உனக்காக ஒரு சிறிய Surprise!
+
+<br><br>
+நம் அழகான நினைவுகளை
+மீண்டும் பார்க்கலாமா? 🌸
+</p>
+
+<button class="btn" onclick="startSurprise()">
+Open My Surprise 💝
+</button>
+
+<br>
+<button class="later" onclick="closePopup()">Later</button>
+
+</div>
+</div>
+
+<!-- HERO -->
 <div class="hero">
-    <div>
-        <h1>தேவா ❤️ லக்ஷணா</h1>
-
-        <p>
-            நம்முடைய அழகான நினைவுகளுக்காக...
-            <br>
-            என் மனதிலிருந்து ஒரு சிறிய கடிதம்.
-        </p>
-
-        <a href="#memories" class="btn">
-            நம் நினைவுகளைப் பார்க்க ❤️
-        </a>
-    </div>
+<div>
+<div class="couple">👩‍❤️‍👨</div>
+<h1>தேவா ❤️ லக்ஷணா</h1>
+<p>
+நம்முடைய அழகான நினைவுகளுக்காக...<br>
+என் மனதிலிருந்து ஒரு சிறிய கடிதம்.<br>
+💕 🌸 💕
+</p>
+<a href="#memories" class="btn">நம் நினைவுகளைப் பார்க்க ❤️</a>
+</div>
 </div>
 
 <!-- INTRO -->
-
 <section>
-    <h2>என் மனதிலிருந்து...</h2>
+<h2>💌 என் மனதிலிருந்து...</h2>
+<div class="section-card intro">
+சில நினைவுகள் புகைப்படங்களில் மட்டும் இருப்பதில்லை...
+அவை நம் மனதில் வாழ்கின்றன.
 
-    <div class="intro">
-        சில நினைவுகள் புகைப்படங்களில் மட்டும் இருப்பதில்லை...
-        அவை நம் மனதில் வாழ்கின்றன.
+உன்னுடன் பகிர்ந்த ஒவ்வொரு சிரிப்பும்,
+ஒவ்வொரு சிறிய தருணமும்,
+எனக்கு மிகவும் முக்கியமானவை.
 
-        உன்னுடன் பகிர்ந்த ஒவ்வொரு சிரிப்பும்,
-        ஒவ்வொரு சிறிய தருணமும்,
-        எனக்கு மிகவும் முக்கியமானவை.
-
-        இந்த website நம் நினைவுகளுக்காகவும்,
-        நான் சொல்ல விரும்பும் சில வார்த்தைகளுக்காகவும்.
-    </div>
+இந்த website நம் நினைவுகளுக்காகவும்,
+நான் சொல்ல விரும்பும் சில வார்த்தைகளுக்காகவும்.
+</div>
 </section>
 
 <!-- CHILDHOOD -->
-
 <section id="memories">
-    <h2>🌸 நம் குழந்தைப் பருவம்</h2>
+<h2>🌸 நம் குழந்தைப் பருவம்</h2>
+<div class="gallery">
 
-    <div class="gallery">
+<div class="card">
+<img src="photos/WhatsApp Image 2026-11-23 at 9.06.51 PM.jpeg" alt="Childhood" onclick="openImage(this)">
+<p>உன் அழகான குழந்தைப் பருவ நினைவு ❤️</p>
+</div>
 
-        <div class="card">
-            <img src="photos/WhatsApp Image 2026-11-23 at 9.06.51 PM.jpeg"
-                 onclick="openImage(this.src)">
-            <p>உன் அழகான குழந்தைப் பருவ நினைவு ❤️</p>
-        </div>
+<div class="card">
+<img src="photos/WhatsApp Image 2026-11-23 at 9.06.35 PM.jpeg" alt="Childhood" onclick="openImage(this)">
+<p>என் குழந்தைப் பருவ நினைவு 😊</p>
+</div>
 
-        <div class="card">
-            <img src="photos/WhatsApp Image 2026-11-23 at 9.06.35 PM.jpeg"
-                 onclick="openImage(this.src)">
-            <p>என் குழந்தைப் பருவ நினைவு 😊</p>
-        </div>
-
-    </div>
+</div>
 </section>
 
-<!-- TOGETHER MEMORIES -->
-
+<!-- TOGETHER -->
 <section>
-    <h2>💞 நம் அழகான தருணங்கள்</h2>
+<h2>💞 நம் அழகான தருணங்கள்</h2>
+<div class="gallery">
 
-    <div class="gallery">
+<div class="card">
+<img src="photos/WhatsApp Image 2026-11-23 at 7.20.54 PM (1).jpeg" alt="Memory" onclick="openImage(this)">
+<p>நம் இருவரின் அழகான நினைவு ❤️</p>
+</div>
 
-        <div class="card">
-            <img src="photos/WhatsApp Image 2026-11-23 at 7.20.54 PM (1).jpeg"
-                 onclick="openImage(this.src)">
-            <p>நம் இருவரின் அழகான நினைவு</p>
-        </div>
+<div class="card">
+<img src="photos/WhatsApp Image 2026-11-23 at 7.20.55 PM.jpeg" alt="Memory" onclick="openImage(this)">
+<p>இந்த தருணம் என்றும் என் நினைவில் இருக்கும் ❤️</p>
+</div>
 
-        <div class="card">
-            <img src="photos/WhatsApp Image 2026-11-23 at 7.20.55 PM.jpeg"
-                 onclick="openImage(this.src)">
-            <p>இந்த தருணம் என்றும் என் நினைவில் இருக்கும் ❤️</p>
-        </div>
+<div class="card">
+<img src="photos/WhatsApp Image 2026-11-23 at 7.20.55 PM (1).jpeg" alt="Memory" onclick="openImage(this)">
+<p>சில தருணங்கள் வார்த்தைகளால் சொல்ல முடியாதவை</p>
+</div>
 
-        <div class="card">
-            <img src="photos/WhatsApp Image 2026-11-23 at 7.20.55 PM (1).jpeg"
-                 onclick="openImage(this.src)">
-            <p>சில தருணங்கள் வார்த்தைகளால் சொல்ல முடியாதவை</p>
-        </div>
+<div class="card">
+<img src="photos/WhatsApp Image 2026-11-23 at 7.20.59 PM.jpeg" alt="Memory" onclick="openImage(this)">
+<p>நம் நினைவுகளில் ஒரு சிறிய தருணம் 💕</p>
+</div>
 
-        <div class="card">
-            <img src="photos/WhatsApp Image 2026-11-23 at 7.20.59 PM.jpeg"
-                 onclick="openImage(this.src)">
-            <p>நம் நினைவுகளில் ஒரு சிறிய தருணம்</p>
-        </div>
-
-    </div>
+</div>
 </section>
 
 <!-- MESSAGES -->
-
 <section>
-    <h2>💌 நம் உரையாடல்கள்</h2>
+<h2>💌 நம் உரையாடல்கள்</h2>
+<div class="gallery">
 
-    <div class="gallery">
+<div class="card">
+<img src="photos/WhatsApp Image 2026-11-23 at 7.23.55 PM.jpeg" alt="Messages" onclick="openImage(this)">
+<p>நம் அழகான உரையாடல்கள் ❤️</p>
+</div>
 
-        <div class="card">
-            <img src="photos/WhatsApp Image 2026-11-23 at 7.23.55 PM.jpeg"
-                 onclick="openImage(this.src)">
-            <p>நம் அழகான உரையாடல்கள்</p>
-        </div>
+<div class="card">
+<img src="photos/WhatsApp Image 2026-11-23 at 7.24.00 PM.jpeg" alt="Messages" onclick="openImage(this)">
+<p>நம் மனதில் நிற்கும் வார்த்தைகள்</p>
+</div>
 
-        <div class="card">
-            <img src="photos/WhatsApp Image 2026-11-23 at 7.24.00 PM.jpeg"
-                 onclick="openImage(this.src)">
-            <p>நம் மனதில் நிற்கும் வார்த்தைகள்</p>
-        </div>
+<div class="card">
+<img src="photos/WhatsApp Image 2026-11-23 at 7.23.59 PM.jpeg" alt="Messages" onclick="openImage(this)">
+<p>நான் சொல்ல விரும்பிய வார்த்தைகள் 💌</p>
+</div>
 
-        <div class="card">
-            <img src="photos/WhatsApp Image 2026-11-23 at 7.23.59 PM.jpeg"
-                 onclick="openImage(this.src)">
-            <p>நான் சொல்ல விரும்பிய வார்த்தைகள்</p>
-        </div>
+<div class="card">
+<img src="photos/WhatsApp Image 2026-11-23 at 7.20.59 PM (1).jpeg" alt="Messages" onclick="openImage(this)">
+<p>நம் சின்ன சின்ன சந்தோஷங்கள் 😊</p>
+</div>
 
-        <div class="card">
-            <img src="photos/WhatsApp Image 2026-11-23 at 7.20.59 PM (1).jpeg"
-                 onclick="openImage(this.src)">
-            <p>நம் சின்ன சின்ன சந்தோஷங்கள் 😊</p>
-        </div>
-
-    </div>
+</div>
 </section>
 
 <!-- APOLOGY -->
-
 <section>
-    <h2>🥺 என் மன்னிப்பு</h2>
-
-    <div class="poem">
-
+<h2>🥺 என் மன்னிப்பு</h2>
+<div class="poem">
 உன் சிரிப்பில் அழகைக் கண்டேன்,
 உன் மௌனத்தில் வலியைக் காணத் தவறினேன்…
 
@@ -368,88 +340,150 @@ footer {
 இன்னும் சிறந்த மனிதனாக மாற முயற்சிக்கிறேன்.
 
 — தேவா ❤️ லக்ஷணா
+</div>
+</section>
 
-    </div>
+<!-- LOVE LETTER -->
+<section>
+<h2>💝 உனக்காக ஒரு ரகசியக் கடிதம்</h2>
+
+<div class="letter">
+<div style="font-size:70px">💌</div>
+
+<p>இந்தக் கடிதத்தில் என் மனதின் ஒரு சிறிய பகுதி இருக்கிறது...</p>
+
+<button class="btn" onclick="openLetter()">
+Open My Love Letter 💗
+</button>
+
+<div class="letter-content" id="loveLetter">
+<h2>என் அன்பான லக்ஷணாவுக்கு ❤️</h2>
+
+உன் உணர்வுகள் எனக்கு முக்கியம்.
+உன் மனதைப் புரிந்துகொள்ள
+நான் இன்னும் முயற்சி செய்வேன்.
+
+<br><br>
+என் தவறுகளை உணர்ந்து
+என்னை மாற்றிக்கொள்ள விரும்புகிறேன்.
+
+<br><br>
+உனக்குத் தேவையான நேரத்தையும்
+இடத்தையும் மதிப்பேன்.
+
+<br><br>
+என்றும் அன்புடன்,<br>
+<b>உன் தேவா ❤️</b>
+</div>
+</div>
 </section>
 
 <!-- FINAL -->
-
 <section class="final">
-    <h2>❤️ ஒரு சிறிய வேண்டுகோள்</h2>
+<h2>❤️ ஒரு சிறிய வேண்டுகோள்</h2>
 
-    <p class="intro">
-        இந்த நினைவுகள் உன் முகத்தில்
-        ஒரு சிறிய சிரிப்பையாவது
-        கொண்டு வந்தால் எனக்கு மகிழ்ச்சி.
+<div class="intro">
+இந்த நினைவுகள் உன் முகத்தில்
+ஒரு சிறிய சிரிப்பையாவது
+கொண்டு வந்தால் எனக்கு மகிழ்ச்சி.
 
-        <br><br>
+<br><br>
 
-        நான் செய்த தவறை உணர்கிறேன்.
-        உன் உணர்வுகளை மதிக்கவும்,
-        உன்னைப் புரிந்துகொள்ளவும்
-        முயற்சி செய்கிறேன்.
+நான் செய்த தவறை உணர்கிறேன்.
+உன் உணர்வுகளை மதிக்கவும்,
+உன்னைப் புரிந்துகொள்ளவும்
+முயற்சி செய்கிறேன்.
 
-        <br><br>
+<br><br>
 
-        உனக்கு தேவையான நேரத்தையும்
-        இடத்தையும் நான் மதிப்பேன்.
+உனக்கு தேவையான நேரத்தையும்
+இடத்தையும் நான் மதிப்பேன்.
 
-        <br><br>
+<br><br>
+அன்புடன்,<br>
+<b>தேவா ❤️</b>
 
-        அன்புடன்,
-        <br>
-        <b>தேவா ❤️</b>
-    </p>
+<br><br>
+<div class="couple">👩‍❤️‍👨</div>
+நம் நினைவுகள் என்றும் அழகாக இருக்கட்டும் 🌷
+</div>
 </section>
 
 <footer>
-    நம் நினைவுகள் என்றும் அழகாக இருக்கட்டும் 🌷
+Made with ❤️ by Deva<br>
+தேவா ❤️ லக்ஷணா<br>
+நம் நினைவுகள் என்றும் அழியாது 🌸
 </footer>
 
-<!-- PHOTO VIEW -->
-
-<div class="lightbox" id="lightbox"
-     onclick="closeImage()">
-
-    <span>&times;</span>
-
-    <img id="lightboxImg">
+<!-- IMAGE VIEWER -->
+<div class="lightbox" id="lightbox" onclick="closeImage()">
+<span>&times;</span>
+<img id="lightboxImg" alt="Memory">
 </div>
 
 <script>
 
-function openImage(src) {
-    document.getElementById("lightbox").style.display = "flex";
-    document.getElementById("lightboxImg").src = src;
+/* POPUP */
+function startSurprise(){
+document.getElementById("welcomePopup").classList.add("hide");
+createHearts(25);
+document.getElementById("memories").scrollIntoView({behavior:"smooth"});
 }
 
-function closeImage() {
-    document.getElementById("lightbox").style.display = "none";
+function closePopup(){
+document.getElementById("welcomePopup").classList.add("hide");
 }
 
-function createHeart() {
-    const heart = document.createElement("div");
+/* FLOATING HEARTS */
+const symbols=["❤️","💕","💗","💖","💘","💝","💞","🌸","💜"];
 
-    heart.className = "heart";
-
-    heart.innerHTML = ["❤️", "💗", "💕", "🌸", "💖"][
-        Math.floor(Math.random() * 5)
-    ];
-
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 10000);
+function createHeart(){
+const h=document.createElement("div");
+h.className="heart";
+h.innerHTML=symbols[Math.floor(Math.random()*symbols.length)];
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(16+Math.random()*25)+"px";
+h.style.animationDuration=(6+Math.random()*7)+"s";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),14000);
 }
 
-setInterval(createHeart, 700);
+setInterval(createHeart,500);
+
+function createHearts(count){
+for(let i=0;i<count;i++){
+setTimeout(createHeart,i*100);
+}
+}
+
+/* LOVE LETTER */
+function openLetter(){
+const letter=document.getElementById("loveLetter");
+letter.classList.toggle("show");
+if(letter.classList.contains("show"))createHearts(15);
+}
+
+/* PHOTO VIEW */
+function openImage(img){
+if(!img.complete || !img.naturalWidth){
+alert("Photo not found! Please check the filename in your photos folder.");
+return;
+}
+document.getElementById("lightboxImg").src=img.src;
+document.getElementById("lightbox").style.display="flex";
+}
+
+function closeImage(){
+document.getElementById("lightbox").style.display="none";
+}
+
+document.addEventListener("keydown",function(e){
+if(e.key==="Escape")closeImage();
+});
 
 </script>
 
 </body>
 </html>
+
 
