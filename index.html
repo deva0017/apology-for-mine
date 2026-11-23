@@ -11,6 +11,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
 font-family:"Noto Sans Tamil",Arial,sans-serif;
 color:#74334f;
@@ -19,8 +20,8 @@ background-size:400% 400%;
 animation:bg 12s infinite alternate;
 overflow-x:hidden
 }
-@keyframes bg{to{background-position:100% 100%}}
 
+@keyframes bg{to{background-position:100% 100%}}
 button{cursor:pointer}
 
 /* POPUP */
@@ -32,6 +33,7 @@ backdrop-filter:blur(12px);
 transition:.6s
 }
 .popup.hide{opacity:0;visibility:hidden;pointer-events:none}
+
 .popup-box{
 background:linear-gradient(145deg,#fff0f6,#eadcff,#ffe0ed);
 max-width:430px;width:100%;padding:35px 24px;
@@ -40,12 +42,15 @@ box-shadow:0 0 45px #ff70b5;
 border:3px solid white;
 animation:appear .8s ease
 }
+
 @keyframes appear{
 from{transform:scale(.4) rotate(-8deg);opacity:0}
 to{transform:scale(1);opacity:1}
 }
+
 .couple{font-size:85px;animation:dance 2s infinite}
 @keyframes dance{50%{transform:translateY(-13px) rotate(5deg)}}
+
 .popup h2{color:#e63880;margin:15px 0;font-size:27px}
 .popup p{line-height:2;margin-bottom:20px}
 
@@ -59,8 +64,11 @@ box-shadow:0 5px 20px #ed8cbd;
 transition:.3s;text-decoration:none
 }
 .btn:hover{transform:scale(1.08)}
-.later{background:white;color:#d63384;padding:9px 22px;
-border:1px solid pink;border-radius:25px;margin-top:15px}
+
+.later{
+background:white;color:#d63384;padding:9px 22px;
+border:1px solid pink;border-radius:25px;margin-top:15px
+}
 
 /* FLOATING HEARTS */
 .heart{
@@ -68,6 +76,7 @@ position:fixed;bottom:-40px;
 z-index:5;pointer-events:none;
 animation:floatUp linear forwards
 }
+
 @keyframes floatUp{
 0%{transform:translateY(0) rotate(0);opacity:0}
 15%{opacity:.9}
@@ -81,21 +90,25 @@ align-items:center;justify-content:center;
 text-align:center;padding:30px 20px;
 background:linear-gradient(135deg,#ffc5dc,#e9d5ff,#fff0f5)
 }
+
 .hero h1{
 font-size:clamp(35px,7vw,65px);
 color:#d63384;margin:20px 0;
 text-shadow:2px 3px 10px white
 }
+
 .hero p{font-size:19px;line-height:2;margin-bottom:25px}
 
 /* SECTIONS */
 section{padding:75px 20px;text-align:center}
 section h2{color:#d63384;font-size:30px;margin-bottom:30px}
+
 .intro{
 max-width:760px;margin:auto;
 font-size:18px;line-height:2.2;
 white-space:pre-line
 }
+
 .section-card{
 background:#ffffffbb;padding:30px;
 border-radius:25px;box-shadow:0 10px 30px #dba9c7
@@ -107,16 +120,20 @@ display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:25px;max-width:1100px;margin:auto
 }
+
 .card{
 background:white;padding:12px;border-radius:20px;
 box-shadow:0 8px 25px #d9a9c4;
 transition:.3s;overflow:hidden
 }
+
 .card:hover{transform:translateY(-9px) rotate(-1deg)}
+
 .card img{
 width:100%;height:280px;object-fit:cover;
 border-radius:14px;cursor:pointer
 }
+
 .card p{padding:14px 5px;line-height:1.8}
 
 /* APOLOGY */
@@ -130,21 +147,22 @@ white-space:pre-line
 }
 
 /* LOVE LETTER */
-.letter{
-max-width:600px;margin:25px auto
-}
+.letter{max-width:600px;margin:25px auto}
+
 .letter-content{
 display:none;background:white;padding:28px;
 border-radius:22px;margin-top:20px;
 line-height:2;box-shadow:0 8px 25px #d9a9c4;
 animation:appear .7s
 }
+
 .letter-content.show{display:block}
 
 /* FINAL */
 .final{
 background:linear-gradient(135deg,#ffcade,#e9d5ff,#ffe5ed)
 }
+
 .final .intro{
 background:#ffffffaa;padding:30px;border-radius:25px
 }
@@ -155,31 +173,95 @@ display:none;position:fixed;inset:0;
 background:#000e;z-index:2000;
 align-items:center;justify-content:center;padding:20px
 }
+
 .lightbox img{max-width:95%;max-height:85vh;border-radius:15px}
+
 .lightbox span{
 position:absolute;right:25px;top:15px;
 font-size:45px;color:white;cursor:pointer
 }
 
-footer{padding:30px;background:#f8c9df;text-align:center;line-height:2}
+/* MINIATURE GIFT */
+.proposal-gift{
+background:linear-gradient(135deg,#ffd6e7,#ead5ff,#fff0f5);
+overflow:hidden
+}
+
+.gift-wrap{max-width:850px;margin:0 auto}
+
+.gift-intro{
+font-size:18px;line-height:2;margin-bottom:25px
+}
+
+.gift-button{
+border:0;background:transparent;
+display:inline-flex;flex-direction:column;
+align-items:center;gap:12px;
+color:#d63384;font-family:inherit;
+font-size:18px;font-weight:700;padding:18px 28px
+}
+
+.gift-icon{
+display:block;font-size:105px;
+filter:drop-shadow(0 12px 10px #c66b9b55);
+transition:transform .35s
+}
+
+.gift-button:hover .gift-icon{
+transform:translateY(-8px) rotate(-6deg) scale(1.06)
+}
+
+.gift-reveal{
+display:none;margin:25px auto 0;
+padding:25px 18px;max-width:650px;
+background:#ffffffdf;border:2px solid white;
+border-radius:28px;box-shadow:0 12px 35px #d58bb555;
+animation:appear .8s ease
+}
+
+.gift-reveal.show{display:block}
+
+.gift-miniature{
+width:100%;max-width:480px;height:auto;
+max-height:620px;object-fit:contain;
+border-radius:20px;box-shadow:0 8px 25px #d9a9c4;
+margin:10px auto 20px
+}
+
+.proposal-question{
+color:#d63384;font-size:clamp(25px,5vw,39px);
+line-height:1.6;margin:18px 0 12px
+}
+
+.proposal-note{font-size:17px;line-height:2.1}
+
+.gift-again{
+margin-top:20px;background:white;
+color:#d63384;border:1px solid pink
+}
+
+footer{
+padding:30px;background:#f8c9df;
+text-align:center;line-height:2
+}
 
 @media(max-width:600px){
 section h2{font-size:25px}
 .card img{height:240px}
 .poem{padding:22px 15px;font-size:16px}
 .popup-box{padding:28px 18px}
+.gift-icon{font-size:85px}
+.gift-reveal{padding:20px 14px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- COUPLE POPUP -->
+<!-- WELCOME POPUP -->
 <div class="popup" id="welcomePopup">
 <div class="popup-box">
-
 <div class="couple">👩‍❤️‍👨</div>
-
 <h2>தேவா ❤️ லக்ஷணா</h2>
 
 <p>
@@ -200,7 +282,6 @@ Open My Surprise 💝
 
 <br>
 <button class="later" onclick="closePopup()">Later</button>
-
 </div>
 </div>
 
@@ -349,7 +430,6 @@ Open My Surprise 💝
 
 <div class="letter">
 <div style="font-size:70px">💌</div>
-
 <p>இந்தக் கடிதத்தில் என் மனதின் ஒரு சிறிய பகுதி இருக்கிறது...</p>
 
 <button class="btn" onclick="openLetter()">
@@ -406,6 +486,53 @@ Open My Love Letter 💗
 <br><br>
 <div class="couple">👩‍❤️‍👨</div>
 நம் நினைவுகள் என்றும் அழகாக இருக்கட்டும் 🌷
+</div>
+</section>
+
+<!-- FINAL MINIATURE GIFT -->
+<section class="proposal-gift" id="proposal">
+<h2>🎁 உனக்காக ஒரு கடைசி Surprise</h2>
+
+<div class="gift-wrap">
+<p class="gift-intro">
+லக்ஷணா, உனக்காக ஒரு சின்ன பரிசு...
+இதைத் திறந்து பார் ❤️
+</p>
+
+<button class="gift-button" id="giftButton" onclick="openProposalGift()">
+<span class="gift-icon" id="giftIcon">🎁</span>
+<span id="giftButtonText">உன் பரிசைத் திற ❤️</span>
+</button>
+
+<div class="gift-reveal" id="giftReveal">
+
+<h2>உனக்காக ஒரு சின்ன தேவா... ❤️</h2>
+
+<img
+class="gift-miniature"
+src="photos/deva-gift-miniature.png"
+alt="சின்ன தேவா கையில் மோதிரப் பரிசுடன்"
+>
+
+<div class="proposal-question">
+லக்ஷணா, என்னையும் ஏற்றுக்கொள்வாயா? ❤️
+</div>
+
+<p class="proposal-note">
+நான் உன்னைத் திருமணம் செய்துகொள்ளச் சொல்லவில்லை...<br>
+எனக்கு ஒரு வாய்ப்பு மட்டும் கொடுக்கச் சொல்கிறேன்.<br>
+என்னையும் என் கற்பனையான மோதிரத்தையும் ஏற்றுக்கொள்வாயா? 💍❤️
+</p>
+
+<p style="margin-top:18px">
+<b>என்றும் அன்புடன், உன் தேவா ❤️</b>
+</p>
+
+<button class="btn gift-again" onclick="closeProposalGift()">
+பரிசை மூடு 🎁
+</button>
+
+</div>
 </div>
 </section>
 
@@ -481,9 +608,32 @@ document.addEventListener("keydown",function(e){
 if(e.key==="Escape")closeImage();
 });
 
+/* MINIATURE GIFT SURPRISE */
+function openProposalGift(){
+const reveal=document.getElementById("giftReveal");
+reveal.classList.add("show");
+
+document.getElementById("giftIcon").textContent="🎉";
+document.getElementById("giftButtonText").textContent="உன் பரிசு திறக்கப்பட்டது ❤️";
+
+createHearts(30);
+
+setTimeout(()=>{
+reveal.scrollIntoView({behavior:"smooth",block:"center"});
+},150);
+}
+
+function closeProposalGift(){
+document.getElementById("giftReveal").classList.remove("show");
+
+document.getElementById("giftIcon").textContent="🎁";
+document.getElementById("giftButtonText").textContent="உன் பரிசைத் திற ❤️";
+}
+
 </script>
 
 </body>
 </html>
+
 
 
