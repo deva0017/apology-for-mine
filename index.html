@@ -1,1 +1,455 @@
 
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தேவா ❤️ லக்ஷணா | நம் நினைவுகள்</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans Tamil", Arial, sans-serif;
+    background: #fff0f5;
+    color: #5c3045;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #ffd6e7, #fff0f5, #ffe4e1);
+    padding: 30px;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 7vw, 70px);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    background: #e75480;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.08);
+    background: #c93b69;
+}
+
+section {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #bd416b;
+}
+
+.intro {
+    max-width: 750px;
+    margin: auto;
+    font-size: 19px;
+    line-height: 2;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    background: white;
+    padding: 12px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(190, 80, 120, 0.15);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px) rotate(-1deg);
+}
+
+.card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.card p {
+    margin-top: 15px;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.poem {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px #e7b4c8;
+    font-size: 19px;
+    line-height: 2.2;
+    white-space: pre-line;
+}
+
+.final {
+    background: linear-gradient(135deg, #ffcfdf, #ffe8ee);
+    padding: 90px 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #f9d6e3;
+}
+
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 22px;
+    animation: float 7s linear infinite;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.lightbox img {
+    max-width: 95%;
+    max-height: 90vh;
+    border-radius: 12px;
+}
+
+.lightbox span {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+@media(max-width:600px) {
+    section h2 {
+        font-size: 27px;
+    }
+
+    .poem {
+        padding: 20px;
+        font-size: 17px;
+    }
+
+    .card img {
+        height: 240px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING -->
+
+<div class="hero">
+    <div>
+        <h1>தேவா ❤️ லக்ஷணா</h1>
+
+        <p>
+            நம்முடைய அழகான நினைவுகளுக்காக...
+            <br>
+            என் மனதிலிருந்து ஒரு சிறிய கடிதம்.
+        </p>
+
+        <a href="#memories" class="btn">
+            நம் நினைவுகளைப் பார்க்க ❤️
+        </a>
+    </div>
+</div>
+
+<!-- INTRO -->
+
+<section>
+    <h2>என் மனதிலிருந்து...</h2>
+
+    <div class="intro">
+        சில நினைவுகள் புகைப்படங்களில் மட்டும் இருப்பதில்லை...
+        அவை நம் மனதில் வாழ்கின்றன.
+
+        உன்னுடன் பகிர்ந்த ஒவ்வொரு சிரிப்பும்,
+        ஒவ்வொரு சிறிய தருணமும்,
+        எனக்கு மிகவும் முக்கியமானவை.
+
+        இந்த website நம் நினைவுகளுக்காகவும்,
+        நான் சொல்ல விரும்பும் சில வார்த்தைகளுக்காகவும்.
+    </div>
+</section>
+
+<!-- CHILDHOOD -->
+
+<section id="memories">
+    <h2>🌸 நம் குழந்தைப் பருவம்</h2>
+
+    <div class="gallery">
+
+        <div class="card">
+            <img src="photos/her_childhood.jpg"
+                 onclick="openImage(this.src)">
+            <p>உன் அழகான குழந்தைப் பருவ நினைவு ❤️</p>
+        </div>
+
+        <div class="card">
+            <img src="photos/your_childhood.jpg"
+                 onclick="openImage(this.src)">
+            <p>என் குழந்தைப் பருவ நினைவு 😊</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- TOGETHER MEMORIES -->
+
+<section>
+    <h2>💞 நம் அழகான தருணங்கள்</h2>
+
+    <div class="gallery">
+
+        <div class="card">
+            <img src="photos/together_photo.jpg"
+                 onclick="openImage(this.src)">
+            <p>நம் இருவரின் அழகான நினைவு</p>
+        </div>
+
+        <div class="card">
+            <img src="photos/together_story.jpg"
+                 onclick="openImage(this.src)">
+            <p>இந்த தருணம் என்றும் என் நினைவில் இருக்கும் ❤️</p>
+        </div>
+
+        <div class="card">
+            <img src="photos/memory_closeup.jpg"
+                 onclick="openImage(this.src)">
+            <p>சில தருணங்கள் வார்த்தைகளால் சொல்ல முடியாதவை</p>
+        </div>
+
+        <div class="card">
+            <img src="photos/hands_memory.jpg"
+                 onclick="openImage(this.src)">
+            <p>நம் நினைவுகளில் ஒரு சிறிய தருணம்</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- MESSAGES -->
+
+<section>
+    <h2>💌 நம் உரையாடல்கள்</h2>
+
+    <div class="gallery">
+
+        <div class="card">
+            <img src="photos/love_messages.jpg"
+                 onclick="openImage(this.src)">
+            <p>நம் அழகான உரையாடல்கள்</p>
+        </div>
+
+        <div class="card">
+            <img src="photos/memory_letter.jpg"
+                 onclick="openImage(this.src)">
+            <p>நம் மனதில் நிற்கும் வார்த்தைகள்</p>
+        </div>
+
+        <div class="card">
+            <img src="photos/apology_chat.jpg"
+                 onclick="openImage(this.src)">
+            <p>நான் சொல்ல விரும்பிய வார்த்தைகள்</p>
+        </div>
+
+        <div class="card">
+            <img src="photos/playful_memory.jpg"
+                 onclick="openImage(this.src)">
+            <p>நம் சின்ன சின்ன சந்தோஷங்கள் 😊</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- APOLOGY -->
+
+<section>
+    <h2>🥺 என் மன்னிப்பு</h2>
+
+    <div class="poem">
+
+உன் சிரிப்பில் அழகைக் கண்டேன்,
+உன் மௌனத்தில் வலியைக் காணத் தவறினேன்…
+
+உன் மனதைப் புரிந்துகொள்ள வேண்டிய நேரத்தில்,
+என் தவறுகளை மட்டுமே நான் செய்துகொண்டிருந்தேன்…
+
+இன்று உணர்கிறேன்,
+அன்பு என்பது வார்த்தைகளில் மட்டும் இல்லை,
+ஒருவரின் மனதைப் புரிந்துகொள்வதிலும் இருக்கிறது…
+
+நான் செய்த தவறுக்கு மன்னிப்பு…
+இனி என் வார்த்தைகளைவிட
+என் செயல்கள் பேசட்டும்.
+
+கோபத்தில் சொல்லிய வார்த்தைகள்,
+உன் மனதில் காயமாய் இருந்தால்…
+என் மௌனத்தால் உன்னை வருத்தியிருந்தால்…
+
+மன்னிப்பு கேட்கும் இந்த வார்த்தைகள்,
+அந்தக் காயத்தை உடனே மறைக்காது என்று தெரியும்…
+ஆனாலும் என் தவறை உணர்ந்த
+உண்மையான மனதின் குரல் இது…
+
+மன்னித்துவிடு லக்ஷணா…
+உன் மனதைப் புரிந்துகொள்ள
+இன்னும் சிறந்த மனிதனாக மாற முயற்சிக்கிறேன்.
+
+— தேவா ❤️ லக்ஷணா
+
+    </div>
+</section>
+
+<!-- FINAL -->
+
+<section class="final">
+    <h2>❤️ ஒரு சிறிய வேண்டுகோள்</h2>
+
+    <p class="intro">
+        இந்த நினைவுகள் உன் முகத்தில்
+        ஒரு சிறிய சிரிப்பையாவது
+        கொண்டு வந்தால் எனக்கு மகிழ்ச்சி.
+
+        <br><br>
+
+        நான் செய்த தவறை உணர்கிறேன்.
+        உன் உணர்வுகளை மதிக்கவும்,
+        உன்னைப் புரிந்துகொள்ளவும்
+        முயற்சி செய்கிறேன்.
+
+        <br><br>
+
+        உனக்கு தேவையான நேரத்தையும்
+        இடத்தையும் நான் மதிப்பேன்.
+
+        <br><br>
+
+        அன்புடன்,
+        <br>
+        <b>தேவா ❤️</b>
+    </p>
+</section>
+
+<footer>
+    நம் நினைவுகள் என்றும் அழகாக இருக்கட்டும் 🌷
+</footer>
+
+<!-- PHOTO VIEW -->
+
+<div class="lightbox" id="lightbox"
+     onclick="closeImage()">
+
+    <span>&times;</span>
+
+    <img id="lightboxImg">
+</div>
+
+<script>
+
+function openImage(src) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightboxImg").src = src;
+}
+
+function closeImage() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = ["❤️", "💗", "💕", "🌸", "💖"][
+        Math.floor(Math.random() * 5)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+}
+
+setInterval(createHeart, 700);
+
+</script>
+
+</body>
+</html>
+
